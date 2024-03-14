@@ -15,4 +15,14 @@ class Pembelian extends Model
     {
         return $this->hasMany(DetailPembelian::class);
     }
+
+    public function distributor()
+    {
+        return $this->belongsTo(Distributor::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

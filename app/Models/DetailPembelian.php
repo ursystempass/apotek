@@ -15,4 +15,9 @@ class DetailPembelian extends Model
     {
         return $this->belongsTo(Obat::class);
     }
+
+    public function pembelian()
+    {
+        return $this->belongsTo(Pembelian::class);
+    }
 }
