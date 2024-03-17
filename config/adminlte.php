@@ -294,147 +294,110 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
         [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
+                'text' => 'user',
+                'url'  => '/users',
+                'icon'  => 'fa fa-users',
+                'can' => 'apoteker-only'
+
+            ],
+
+
+        [
+                'text' => 'obat',
+                'url'  => '/obat',
+                'icon'  => 'fa fa-cart',
+                'can' => 'apoteker-only'
         ],
+
         [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-        // Pengaturan Pengguna (hanya untuk admin)
-        [
-            'header' => 'PENGATURAN PENGGUNA',
-            'can' => 'admin-only'
-        ],
-        [
-            'text' => 'Pengguna',
-            'url' => '/users',
-            'icon' => 'fa fa-users',
-            'can' => 'admin-only'
-        ],
-        // Pengaturan Pembelajaran (hanya untuk admin)
-        [
-            'header' => 'PENGATURAN PEMBELAJARAN',
-            'can' => 'admin-only'
-        ],
-        // Menu untuk admin
-        [
-            'text' => 'Bidang Studi',
-            'url' => '/',
-            'icon' => 'fa fa-university',
-            'can' => 'admin-only'
-        ],
-        // Hapus elemen menu yang tidak relevan untuk gudang
-        // Sidebar search (bisa dihapus jika tidak diperlukan)
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        // Profile (akan tetap ditampilkan)
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        // Opsi untuk Inventaris (hanya untuk apoteker)
-        [
-            'header' => 'Inventaris',
+            'text' => 'distributor',
+            'url'  => '/distributor',
+            'icon'  => 'fa fa-truck',
             'can' => 'apoteker-only'
         ],
+
         [
-            'text' => 'Distributor',
-            'url' => '/distributor',
-            'icon' => 'fa fa-book',
-            'can' => 'apoteker-only'
+        'text' => 'pembelian',
+        'url'  => '/pembelian',
+        'icon'  => 'fa fa-cart-plus',
+        'can' => 'gudang-only'
         ],
+
         [
-            'text' => 'Obat',
-            'icon' => 'fas fa-fw fa-prescription-bottle',
-            'submenu' => [
-                [
-                    'text' => 'Catalog Obat',
-                    'url' => '/obat/catalog',
-                    'can' => 'apoteker-only'
-                ],
-                [
-                    'text' => 'Data Obat',
-                    'url' => '/obat',
-                    'can' => 'apoteker-only'
-                ],
+            'text' => 'detailpembelian',
+            'url'  => '/detailpembelian',
+            'icon'  => 'fa fa-cart-plus',
+            'can' => 'gudang-only'
             ],
-        ],
-        [
-            'text' => 'Pengguna',
-            'icon' => 'fa fa-user-friends',
-            'submenu' => [
-                [
-                    'text' => 'Apoteker',
-                    'url' => '#',
-                    'can' => 'apoteker-only'
+
+            [
+                'text' => 'penjualan',
+                'url'  => '/penjualan',
+                'icon'  => 'fa fa-cart-plus',
+                'can' => 'kasir-only'
                 ],
                 [
-                    'text' => 'Gudang',
-                    'url' => '/',
-                    'can' => 'apoteker-only'
-                ],
-                [
-                    'text' => 'Kasir',
-                    'url' => '/',
-                    'can' => 'apoteker-only'
-                ],
-                [
-                    'text' => 'Pemilik',
-                    'url' => '/',
-                    'can' => 'apoteker-only'
-                ],
-            ],
-        ],
+                    'text' => 'detailpenjualan',
+                    'url'  => '/detailpenjualan',
+                    'icon'  => 'fa fa-cart-plus',
+                    'can' => 'kasir-only'
+                    ],
+                    [
+                        'text' => 'Laporan Jual',
+                        'url'  => '/laporan',
+                        'icon'  => 'fa fa-cart-plus',
+                        'can' => 'pemilik-only'
+                        ],
+                        [
+                            'text' => 'Laporan Pembelian',
+                            'url'  => '/laporan1',
+                            'icon'  => 'fa fa-calendar-plus-o',
+                            'can' => 'pemilik-only'
+                            ],
+
         // Elemen menu untuk peran gudang
-        ['header' => 'AKUN Gudang', 'can' => 'gudang-only'],
-        [
-            'text' => 'Pembelian',
-            'url' => '/pembelian',
-            'icon' => 'fa fa-user-md',
-            'can' => 'gudang-only'
-        ],
-        [
-            'text' => 'Detail Pembelian',
-            'url' => '/detailpembelian',
-            'icon' => 'fa fa-book',
-            'can' => 'gudang-only'
-        ],
-        // Elemen menu untuk peran kasir
-        ['header' => 'AKUN Kasir', 'can' => 'kasir-only'],
-        [
-            'text' => 'Profile',
-            'url' => '/',
-            'icon' => 'fa fa-user-md',
-            'can' => 'siswa-only'
-        ],
-        [
-            'text' => 'Nilai',
-            'url' => '/',
-            'icon' => 'fa fa-book',
-            'can' => 'siswa-only'
-        ],
-        // Elemen menu untuk peran pemilik
-        ['header' => 'AKUN Pemilik', 'can' => 'pemilik-only'],
-        [
-            'text' => 'Profile',
-            'url' => '/',
-            'icon' => 'fa fa-user-md',
-            'can' => 'siswa-only'
-        ],
-        [
-            'text' => 'Nilai',
-            'url' => '/',
-            'icon' => 'fa fa-book',
-            'can' => 'siswa-only'
-        ],
+        // ['header' => 'AKUN Gudang', 'can' => 'gudang-only'],
+        // [
+        //     'text' => 'Pembelian',
+        //     'url' => '/pembelian',
+        //     'icon' => 'fa fa-user-md',
+        //     'can' => 'gudang-only'
+        // ],
+        // [
+        //     'text' => 'Detail Pembelian',
+        //     'url' => '/detailpembelian',
+        //     'icon' => 'fa fa-book',
+        //     'can' => 'gudang-only'
+        // ],
+        // // Elemen menu untuk peran kasir
+        // ['header' => 'AKUN Kasir', 'can' => 'kasir-only'],
+        // [
+        //     'text' => 'Profile',
+        //     'url' => '/',
+        //     'icon' => 'fa fa-user-md',
+        //     'can' => 'siswa-only'
+        // ],
+        // [
+        //     'text' => 'Nilai',
+        //     'url' => '/',
+        //     'icon' => 'fa fa-book',
+        //     'can' => 'siswa-only'
+        // ],
+        // // Elemen menu untuk peran pemilik
+        // ['header' => 'AKUN Pemilik', 'can' => 'pemilik-only'],
+        // [
+        //     'text' => 'Profile',
+        //     'url' => '/',
+        //     'icon' => 'fa fa-user-md',
+        //     'can' => 'siswa-only'
+        // ],
+        // [
+        //     'text' => 'Nilai',
+        //     'url' => '/',
+        //     'icon' => 'fa fa-book',
+        //     'can' => 'siswa-only'
+        // ],
 
 
 
@@ -499,22 +462,22 @@ return [
         //         ],
         //     ],
         // ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
+        // ['header' => 'labels'],
+        // [
+        //     'text' => 'important',
+        //     'icon_color' => 'red',
+        //     'url' => '#',
+        // ],
+        // [
+        //     'text' => 'warning',
+        //     'icon_color' => 'yellow',
+        //     'url' => '#',
+        // ],
+        // [
+        //     'text' => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url' => '#',
+        // ],
     ],
 
     /*

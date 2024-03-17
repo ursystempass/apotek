@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\DetailPembelianController;
+use App\Http\Controllers\DetailPenjualanController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +45,9 @@ Route::resource('pembelian', PembelianController::class)
     ->middleware('auth');
 Route::resource('detailpembelian', DetailPembelianController::class)
     ->middleware('auth');
+
+Route::resource('penjualan', PenjualanController::class)
+    ->middleware('auth');
+Route::resource('detailpenjualan', DetailPenjualanController::class)
+    ->middleware('auth');
+
