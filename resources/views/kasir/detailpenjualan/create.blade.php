@@ -49,6 +49,47 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        <!-- Menambahkan kolom untuk input detail penjualan -->
+                        <div class="form-group">
+                            <label for="exampleInputJumlahJual">Jumlah Jual</label>
+                            <input type="text" class="form-control @error('jumlah_jual') is-invalid @enderror"
+                                id="exampleInputJumlahJual" placeholder="Jumlah Jual" name="jumlah_jual"
+                                value="{{ old('jumlah_jual') }}">
+                            @error('jumlah_jual')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputHargaJual">Harga Jual</label>
+                            <input type="text" class="form-control @error('harga_jual') is-invalid @enderror"
+                                id="exampleInputHargaJual" placeholder="Harga Jual" name="harga_jual"
+                                value="{{ old('harga_jual') }}">
+                            @error('harga_jual')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputSubTotalJual">Sub Total Jual</label>
+                            <input type="text" class="form-control @error('sub_total_jual') is-invalid @enderror"
+                                id="exampleInputSubTotalJual" placeholder="Sub Total Jual" name="sub_total_jual"
+                                value="{{ old('sub_total_jual') }}">
+                            @error('sub_total_jual')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputObat">Obat</label>
+                            <select class="form-control @error('obat_id') is-invalid @enderror" id="exampleInputObat"
+                                name="obat_id">
+                                <option value="">Pilih Obat</option>
+                                @foreach ($obats as $obat)
+                                    <option value="{{ $obat->id }}">{{ $obat->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('obat_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>

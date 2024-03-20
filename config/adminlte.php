@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'VAX PHARMACY',
+    'title' => 'vax PHARMACY',
     'title_prefix' => '',
     'title_postfix' => '',
 

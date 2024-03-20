@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Obat;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\DetailPenjualan;
@@ -15,10 +16,12 @@ class DetailPenjualanController extends Controller
     }
 
     // Menampilkan form untuk membuat detail penjualan baru
+    // Menampilkan form untuk membuat detail penjualan baru
     public function create()
     {
         $users = User::all(); // Mengambil semua data pengguna
-        return view('kasir.detailpenjualan.create', ['users' => $users]);
+        $obats = Obat::all(); // Mengambil semua data obat
+        return view('kasir.detailpenjualan.create', ['users' => $users, 'obats' => $obats]);
     }
 
     // Menyimpan detail penjualan baru
@@ -29,7 +32,7 @@ class DetailPenjualanController extends Controller
         DetailPenjualan::create($request->all());
 
         return redirect()->route('detailpenjualan.index')
-                         ->with('success','Detail penjualan berhasil ditambahkan.');
+            ->with('success', 'Detail penjualan berhasil ditambahkan.');
     }
 
     // Menampilkan detail penjualan berdasarkan ID
@@ -55,7 +58,7 @@ class DetailPenjualanController extends Controller
         $detail->update($request->all());
 
         return redirect()->route('detailpenjualan.index')
-                         ->with('success','Detail penjualan berhasil diperbarui.');
+            ->with('success', 'Detail penjualan berhasil diperbarui.');
     }
 
     // Menghapus detail penjualan
@@ -65,6 +68,6 @@ class DetailPenjualanController extends Controller
         $detail->delete();
 
         return redirect()->route('detailpenjualan.index')
-                         ->with('success','Detail penjualan berhasil dihapus.');
+            ->with('success', 'Detail penjualan berhasil dihapus.');
     }
 }

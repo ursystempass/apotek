@@ -51,3 +51,6 @@ Route::resource('penjualan', PenjualanController::class)
 Route::resource('detailpenjualan', DetailPenjualanController::class)
     ->middleware('auth');
 
+// web.php
+Route::get('/laporan/pembelian-pdf', [LaporanController::class, 'generatePembelianPDF']);
+Route::get('/laporan/penjualan-pdf', [LaporanController::class, 'generatePenjualanPDF']);
